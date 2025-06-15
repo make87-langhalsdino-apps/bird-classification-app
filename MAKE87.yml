@@ -1,6 +1,8 @@
 build_kit:
   name: python3
   version: latest
+  target_architectures: 
+    - arm64
 inbound_topics:
   - name: DETECTED_CHANGED_IMAGE
     message_type: make87_messages.image.compressed.image_jpeg

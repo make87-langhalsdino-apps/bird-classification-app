@@ -44,11 +44,15 @@ def main():
     labels = load_labels(labels_path)
 
     subscriber = make87.get_subscriber(
-        name="change_detector/images",
+        name="DETECTED_CHANGED_IMAGE",
         message_type=ImageJPEG
     )
-    publisher = make87.get_publisher(
-        name="bird_classifier/results",
+    publisher_score = make87.get_publisher(
+        name="BIRD_CLASS",
+        message_type=String
+    )
+    publisher_image = make87.get_publisher(
+        name="BIRD_IMAGE",
         message_type=String
     )
 
@@ -66,7 +70,8 @@ def main():
                 f"(captured at {msg.header.timestamp.ToDatetime().replace(tzinfo=timezone.utc).isoformat()})"
             )
             out = String(data=result)
-            publisher.publish(message=out)
+            publisher_score.publish(message=out)
+            publisher_image.publish(message=msg)
             print(result)
         except Exception as e:
             print("Classification error:", e)

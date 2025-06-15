@@ -2,5 +2,10 @@ build_kit:
   name: python3
   version: latest
 inbound_topics:
-  - name: HELLO_WORLD_MESSAGE
+  - name: DETECTED_CHANGED_IMAGE
+    message_type: make87_messages.image.compressed.image_jpeg
+outbound_topics:
+  - name: BIRD_CLASS
     message_type: make87_messages.text.text_plain.PlainText
+  - name: BIRD_IMAGE
+    message_type: make87_messages.image.compressed.image_jpeg

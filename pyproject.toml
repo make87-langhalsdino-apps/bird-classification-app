@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "app"
-version = "0.0.1"
+version = "0.0.2"
 description = "Raspberry Pi bird classifier using Make87, ONNX Runtime, and Hugging Face Hub"
 readme = "README.md"
 requires-python = ">=3.9,<3.13"
